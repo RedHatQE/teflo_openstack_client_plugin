@@ -1,5 +1,7 @@
 # User Guide
 
+### To return to documentation home page press [here](https://redhatqe.github.io/teflo_openstack_client_plugin/docs/index.html)
+
 ## Installation
 
 ### Install
