@@ -130,14 +130,7 @@ def parse_network_addresses_to_dict(json_resp, public_net_key):
     """
     ips = dict()
     if json_resp.get('addresses', {}):
-        addresses = json_resp.get('addresses').replace(' ', '').split(';')
-        addy_dict = dict()
-        for addy in addresses:
-            net_item = addy.split('=')
-            if net_item[-1].find(',') != -1:
-                addy_dict.update({net_item[0]: net_item[-1].split(',')})
-                continue
-            addy_dict.update({net_item[0]: net_item[-1]})
+        addy_dict = json_resp.get('addresses')
         LOG.info(addy_dict)
         if len(addy_dict) == 1:
             for key, val in addy_dict.items():
@@ -157,7 +150,7 @@ def parse_network_addresses_to_dict(json_resp, public_net_key):
             if (public_net_key and fnmatch(key, public_net_key)) or (not public_net_key and key.find('provider') != -1):
                 if isinstance(val, list):
                     for ele in val:
-                        if ele.find(':') != 1:
+                        if ele.find(':') != -1:
                             ips.update(dict(public_ipv6=ele))
                             continue
                         ips.update(dict(public=ele))
@@ -168,10 +161,13 @@ def parse_network_addresses_to_dict(json_resp, public_net_key):
 
         if len(priv_ips) > 1:
             ips.update(dict(private=priv_ips))
+            LOG.info(ips)
             return ips
 
-        if len(priv_ips) ==1:
+        if len(priv_ips) == 1:
             ips.update(dict(private=priv_ips[-1]))
+            LOG.info(ips)
             return ips
 
+        LOG.info(ips)
         return ips
