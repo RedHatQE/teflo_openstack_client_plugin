@@ -1,5 +1,7 @@
 # User Guide
 
+### To return to documentation home page press [here](https://redhatqe.github.io/teflo_openstack_client_plugin/docs/index.html)
+
 ## Installation
 
 ### Install
@@ -119,9 +121,6 @@ The DSL for the provisioner is a pass-thru of the equivalent CLI commands. Which
   will infer which action you want to run based on the task being run *provision* or *cleanup*. 
   i.e. you can specify *server* rather than *server_create*
   
-* Only the *create*/*delete* actions are supported. The *add*/*delete*/*set*/*unset*/*show*
-  actions not supported at this moment.
-
 ```yaml
 provision:
   - name: db2_dummy
