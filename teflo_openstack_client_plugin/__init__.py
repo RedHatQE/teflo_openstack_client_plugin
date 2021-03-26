@@ -26,5 +26,5 @@
 
 from .os_client_provisioner import OpenstackClientProvisionerPlugin
 
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 __author__ = 'Red Hat Inc.'
