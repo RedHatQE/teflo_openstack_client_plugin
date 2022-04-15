@@ -113,7 +113,8 @@ def generate_cbn_response(res, public_net_key=None):
         if ip_add and len(res) == 1:
             os_res.append(dict(asset_id=r.get('id'), ip=ip_add, name=r.get('name')))
             continue
-        os_res.append(dict(asset_id=r.get('id'), name=r.get('name')))
+        if isinstance(r, dict):
+            os_res.append(dict(asset_id=r.get('id'), name=r.get('name')))
 
     return os_res
 
@@ -129,7 +130,7 @@ def parse_network_addresses_to_dict(json_resp, public_net_key):
     :return:
     """
     ips = dict()
-    if json_resp.get('addresses', {}):
+    if isinstance(json_resp, dict) and json_resp.get('addresses', {}):
         addy_dict = json_resp.get('addresses')
         LOG.info(addy_dict)
         if len(addy_dict) == 1:
