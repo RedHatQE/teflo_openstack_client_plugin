@@ -7,7 +7,7 @@
 ### Install
 To install the plugin you can use pip. 
 ```bash
-$ pip install git+https://gitlab.cee.redhat.com/ccit/teflo/plugins/teflo_openstack_client_plugin.git@<tagged_version>
+$ pip install ospclientsdk@<tagged_version>
 ```
 
 This will install the [ospclientsdk](https://pypi.org/project/ospclientsdk/) that it is dependent on from pypi
