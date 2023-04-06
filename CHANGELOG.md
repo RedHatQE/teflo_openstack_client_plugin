@@ -1,3 +1,8 @@
+# Version 1.0.2 (2023-04-05)
+
+## Bug Fixes
+* limited the openstackclient version
+
 # Version 1.0.1 (2021-03-26)
 
 ## Bug Fixes
